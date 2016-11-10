@@ -75,7 +75,6 @@ class TestReader(Analyzer):
     def process(self, event):
 
         store = event.input
-        pdb.set_trace()
 
         def get_collection(class_object, coll_label, sort=True):
             pycoll = None
@@ -93,7 +92,10 @@ class TestReader(Analyzer):
                 setattr(event, coll_label, pycoll)
             return pycoll
 
-        get_collection(Particle, 'gen_particles')
+        g = get_collection(Particle, 'gen_particles')
+        for p in g:
+            self.logger.info("Found : {:}".format(p))
+        pdb.set_trace()
         get_collection(Vertex, 'gen_vertices', False)
         get_collection(Jet, 'gen_jets')
         jetcoll = get_collection(Jet, 'jets')
@@ -155,3 +157,5 @@ class TestReader(Analyzer):
         met = get_collection(Met, 'met', False)
         if met:
             event.met = event.met[0]
+
+
