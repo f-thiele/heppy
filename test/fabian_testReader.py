@@ -12,7 +12,7 @@ inputSample = cfg.Component(
     'test_component',
     # create the test file by running
     # python create_tree.py
-    files = [os.path.abspath('/tmp/ee_Z_ddbar_1.root')],
+    files = [os.path.abspath('example.root')],
     )
 
 selectedComponents  = [inputSample]

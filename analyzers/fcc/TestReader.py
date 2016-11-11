@@ -4,7 +4,6 @@ from heppy.particles.fcc.jet import Jet
 from heppy.particles.fcc.vertex import Vertex 
 from heppy.particles.fcc.met import Met
 import heppy.configuration
-import pdb
 
 import math
 
@@ -95,7 +94,6 @@ class TestReader(Analyzer):
         g = get_collection(Particle, 'gen_particles')
         for p in g:
             self.logger.info("Found : {:}".format(p))
-        pdb.set_trace()
         get_collection(Vertex, 'gen_vertices', False)
         get_collection(Jet, 'gen_jets')
         jetcoll = get_collection(Jet, 'jets')
